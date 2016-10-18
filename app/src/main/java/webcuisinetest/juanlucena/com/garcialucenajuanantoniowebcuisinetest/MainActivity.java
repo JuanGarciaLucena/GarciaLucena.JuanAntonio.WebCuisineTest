@@ -3,23 +3,16 @@ package webcuisinetest.juanlucena.com.garcialucenajuanantoniowebcuisinetest;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import adapters.MainListViewAdapter;
 import async.NASA;
-import objects.NasaItem;
-import utils.JSONUtil;
 
 public class MainActivity extends AppCompatActivity {
 

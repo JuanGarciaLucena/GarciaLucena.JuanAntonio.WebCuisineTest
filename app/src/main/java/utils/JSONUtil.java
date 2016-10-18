@@ -1,23 +1,20 @@
 package utils;
 
 import android.util.Log;
-        import org.json.JSONException;
-        import org.json.JSONObject;
-        import java.io.BufferedInputStream;
-        import java.io.BufferedReader;
-        import java.io.DataOutputStream;
-        import java.io.IOException;
-        import java.io.InputStream;
-        import java.io.InputStreamReader;
-        import java.io.UnsupportedEncodingException;
-        import java.net.HttpURLConnection;
-        import java.net.URL;
-        import java.net.URLEncoder;
-import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.HashMap;
-import java.util.List;
 
-import objects.NasaItem;
 
 public class JSONUtil {
 
@@ -114,8 +111,6 @@ public class JSONUtil {
             while ((line = reader.readLine()) != null) {
                 result.append(line);
             }
-
-            Log.d("JSON Parser", "result: " + result.toString());
 
         } catch (IOException e) {
             e.printStackTrace();

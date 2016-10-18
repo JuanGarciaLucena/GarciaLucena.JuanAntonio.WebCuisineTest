@@ -4,11 +4,8 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
-
 import org.json.JSONObject;
-
 import java.util.HashMap;
-
 import utils.JSONUtil;
 
 /**
@@ -25,6 +22,11 @@ public class NASA extends AsyncTask<String, String, JSONObject> {
         this.context = context;
     }
 
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        Toast.makeText(context, "Loading List", Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     protected JSONObject doInBackground(String... args) {
@@ -32,12 +34,10 @@ public class NASA extends AsyncTask<String, String, JSONObject> {
         try {
 
             HashMap<String, String> params = new HashMap<>();
-
             JSONObject json = jsonUtil.makeHttpRequest(LOGIN_URL, "GET", params);
 
             if (json != null) {
                 Log.d("JSON result", json.toString());
-
                 return json;
             }
 
@@ -49,9 +49,7 @@ public class NASA extends AsyncTask<String, String, JSONObject> {
     }
 
     protected void onPostExecute(JSONObject json) {
-
-        int success = 0;
-        String message = "";
+        Toast.makeText(context, "List Loaded", Toast.LENGTH_SHORT).show();
 
     }
 
