@@ -13,7 +13,11 @@ import android.util.Log;
         import java.net.HttpURLConnection;
         import java.net.URL;
         import java.net.URLEncoder;
-        import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import objects.NasaItem;
 
 public class JSONUtil {
 

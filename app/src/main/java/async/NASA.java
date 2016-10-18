@@ -55,11 +55,6 @@ public class NASA extends AsyncTask<String, String, JSONObject> {
         int success = 0;
         String message = "";
 
-
-
-        if (json != null) {
-            Toast.makeText(context, json.toString(), Toast.LENGTH_LONG).show();
-        }
     }
 
 }
