@@ -25,7 +25,6 @@ public class NASA extends AsyncTask<String, String, JSONObject> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        Toast.makeText(context, "Loading List", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -47,10 +46,4 @@ public class NASA extends AsyncTask<String, String, JSONObject> {
 
         return null;
     }
-
-    protected void onPostExecute(JSONObject json) {
-        Toast.makeText(context, "List Loaded", Toast.LENGTH_SHORT).show();
-
-    }
-
 }

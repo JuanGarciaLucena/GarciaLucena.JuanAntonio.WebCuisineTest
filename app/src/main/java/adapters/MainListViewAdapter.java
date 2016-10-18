@@ -1,11 +1,13 @@
 package adapters;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -50,9 +52,15 @@ public class MainListViewAdapter extends BaseAdapter{
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = rowView = inflater.inflate(R.layout.adapter_main_list_view, viewGroup, false);
 
+        LinearLayout rowContainer = (LinearLayout)rowView.findViewById(R.id.rowContainer);
+        if(position % 2 == 0){
+            rowContainer.setBackgroundColor(ContextCompat.getColor(context, R.color.oddCellColor));
+        }
+
         TextView earthDateTextView = (TextView)rowView.findViewById(R.id.earthDateTextView);
         TextView fullNameTextView = (TextView)rowView.findViewById(R.id.fullNameTextView);
         ImageView nasaImageView = (ImageView)rowView.findViewById(R.id.nasaImageView);
+
 
         try {
 
