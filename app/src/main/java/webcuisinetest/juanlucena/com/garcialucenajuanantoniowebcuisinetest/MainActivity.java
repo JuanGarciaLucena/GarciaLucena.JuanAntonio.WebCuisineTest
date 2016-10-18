@@ -1,8 +1,11 @@
 package webcuisinetest.juanlucena.com.garcialucenajuanantoniowebcuisinetest;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -20,6 +23,8 @@ import utils.JSONUtil;
 
 public class MainActivity extends AppCompatActivity {
 
+    private JSONArray jsonArray;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             NASA nasa = new NASA(MainActivity.this);
             jsonObject = nasa.execute().get();
-            JSONArray jsonArray = jsonObject.getJSONArray("photos");
+            jsonArray = jsonObject.getJSONArray("photos");
 
             MainListViewAdapter mainListViewAdapter = new MainListViewAdapter(MainActivity.this, jsonArray);
             mainListView.setAdapter(mainListViewAdapter);
@@ -45,6 +50,22 @@ public class MainActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                try {
+                    String imageUrl = jsonArray.getJSONObject(position).getString("img_src");
+                    Intent i = new Intent(MainActivity.this, DetailActivity.class);
+                    i.putExtra("imageUrl", imageUrl);
+                    startActivity(i);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
 
 
     }

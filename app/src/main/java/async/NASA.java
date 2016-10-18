@@ -17,8 +17,6 @@ import utils.JSONUtil;
 public class NASA extends AsyncTask<String, String, JSONObject> {
 
     private static final String LOGIN_URL = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY\n";
-    private static final String TAG_SUCCESS = "success";
-    private static final String TAG_MESSAGE = "message";
     private Context context;
 
     JSONUtil jsonUtil = new JSONUtil();
